@@ -1,3 +1,98 @@
 
 # FVM Version Cache
 .fvm/flutter_sdk
+
+# -----------------------
+# Core Flutter/Dart
+# -----------------------
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.packages
+
+# -----------------------
+# FVM (Flutter Version Management)
+# -----------------------
+# FVM SDK 심볼릭 링크 및 캐시 (필수 무시)
+.fvm/flutter_sdk
+.fvm/versions
+
+# 주의: .fvm/fvm_config.json 파일은 팀원 공유를 위해 Git에 포함해야 합니다.
+
+# -----------------------
+# Android
+# -----------------------
+android/gradle/wrapper/gradle-wrapper.jar
+android/.gradle
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/**/generated/
+
+# Keystore files (보안상 절대 올리면 안 됨)
+*.keystore
+*.jks
+key.properties
+**/*.keystore
+**/*.jks
+
+# -----------------------
+# iOS / macOS
+# -----------------------
+**/Runner.app/
+**/Runner.zip
+**/Runner.xcresult/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+
+# CocoaPods
+ios/Pods/
+macos/Pods/
+# 주의: Podfile.lock은 버전 일치를 위해 보통 Git에 포함합니다.
+
+# Xcode User Settings
+**/*.mode1v3
+**/*.mode2v3
+**/*.moved-aside
+**/*.pbxuser
+**/*.perspectivev3
+**/xcshareddata/
+**/xcuserdata/
+
+# -----------------------
+# Web
+# -----------------------
+lib/generated_plugin_registrant.dart
+
+# -----------------------
+# IDE & System (Mac/Windows)
+# -----------------------
+# Mac System
+.DS_Store
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+# 단, 팀 컨벤션 공유를 위해 .vscode/settings.json, launch.json은 예외로 두기도 합니다.
+# 예외로 하려면 아래 주석을 해제하세요.
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# -----------------------
+# Environment Variables & Secrets
+# -----------------------
+.env
+.env.*
+!.env.example
