@@ -61,3 +61,12 @@ Your goal is to maintain a scalable, strictly typed codebase following Clean Arc
 - Follow Dart's official linting rules.
 - Use `snake_case` for files and `PascalCase` for classes.
 - Sort imports: Dart -> Package -> Project (Relative).
+
+## 7. Design & Localization Rules
+- **Design Implementation**:
+  - The `designs` folder contains app design screenshots and HTML prototypes.
+  - You **MUST** develop Flutter screens based on the HTML prototypes in the `designs` folder.
+  - **Strictly adhere** to color values, spacing, and other metrics defined in the HTML.
+- **Localization (Korean Only)**:
+  - Even if the design prototypes or screenshots are in English, the actual app content **MUST BE in Korean**.
+  - All UI text, error messages, and user-facing strings must be in Korean.
