@@ -7,7 +7,7 @@
 이 프로젝트는 개발 환경 간의 일관된 Flutter SDK 버전을 유지하기 위해 **FVM**을 사용합니다.
 
 ### 설치
-FVM이 설치되어 있지 않다면, [공식 설치 가이드](https://fvm.app/docs/getting_started/installation)를 참고하세요.
+FVM이 설치되어 있지 않다면, [공식 설치 가이드](https://fvm.app/documentation/getting-started/installation)를 참고하세요.
 
 ### 사용법
 **모든 Flutter 및 Dart 명령어는 반드시 `fvm` 접두어를 붙여서 실행해야 합니다.** `flutter`나 `dart` 명령어를 직접 사용하지 마세요.
@@ -67,6 +67,21 @@ lib/
 - **엄격한 타입 체크**: `dynamic` 타입 사용을 금지합니다. 모든 변수와 함수 시그니처에는 명시적이고 엄격한 타입을 사용해야 합니다.
 - **불변성(Immutability)**: `Freezed`를 사용하여 불변 데이터 구조와 `final` 필드 사용을 지향합니다.
 - **Atomic Design 일관성**: `design_system`의 컴포넌트는 순수해야 하며, 특정 기능의 Provider에 의존하지 않고 오직 파라미터로만 데이터를 전달받습니다.
+
+---
+
+## 4. 디자인 리소스 (Design Resources)
+
+프로젝트의 `designs` 폴더에 앱의 디자인 스크린샷과 html로 작성된 디자인 프로토타입이 포함되어 있습니다. 개발 및 유지보수 시 이 디자인 자료들을 참고하여 UI를 구현합니다.
+
+---
+
+## 5. Git 워크플로우 (Git Workflow)
+
+안정적인 프로젝트 관리를 위해 다음의 브랜치 전략을 준수합니다.
+
+- **Main 브랜치 직접 푸시 금지**: `main` 브랜치에 직접 커밋하거나 푸시하는 것은 **엄격히 금지**되어 있습니다.
+- **Pull Request(PR) 및 빌드 테스트**: 모든 변경 사항은 Github에서 PR을 생성한 후, 자동화된 빌드 테스트를 통과해야만 `main` 브랜치에 머지될 수 있습니다.
 
 ---
 
