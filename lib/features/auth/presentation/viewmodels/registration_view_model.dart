@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/usecases/send_sms_code_usecase.dart';
 import '../../domain/usecases/signup_usecase.dart';
 import '../../domain/usecases/verify_sms_code_usecase.dart';
+import '../providers/auth_providers.dart';
 import '../../../../core/error/failure.dart';
 
 part 'registration_view_model.freezed.dart';
