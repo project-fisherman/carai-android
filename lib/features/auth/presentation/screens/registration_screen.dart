@@ -143,6 +143,7 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
                         controller: _phoneController,
                         keyboardType: TextInputType.phone,
                         suffixIcon: const Icon(Icons.smartphone, color: AppColors.placeholder),
+                        enabled: !isVerified,
                       ),
                       if (!isSmsSent) ...[
                         const SizedBox(height: 24),
@@ -268,6 +269,7 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
       width: 48, // slightly smaller to fit
       height: 64,
       child: TextField(
+        enabled: !ref.watch(registrationViewModelProvider).isVerified,
         controller: _otpControllers[index],
         focusNode: _otpFocusNodes[index],
         keyboardType: TextInputType.number,
