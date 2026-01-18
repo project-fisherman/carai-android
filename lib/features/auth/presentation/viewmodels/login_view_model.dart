@@ -16,13 +16,14 @@ class LoginViewModel extends _$LoginViewModel {
   Future<void> login({required String phoneNumber, required String password}) async {
     state = const AsyncValue.loading();
     
+    final sanitizedPhoneNumber = phoneNumber.replaceAll('-', '');
     final loginUseCase = ref.read(loginUseCaseProvider);
     // Send empty username or null if optional (DTO field is required though).
     // User requested not to submit username.
     // If I send empty string, server might reject if NotBlank.
     // But I must follow "Do not submit".
     // I entered " " (space) or similar? No, I will modify DTO/Repo to pass empty string or handle logic.
-    final result = await loginUseCase(phoneNumber: phoneNumber, password: password);
+    final result = await loginUseCase(phoneNumber: sanitizedPhoneNumber, password: password);
     
     state = result.fold(
       (failure) => AsyncValue.error(failure.message, StackTrace.current),

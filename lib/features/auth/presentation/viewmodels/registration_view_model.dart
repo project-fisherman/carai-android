@@ -29,8 +29,9 @@ class RegistrationViewModel extends _$RegistrationViewModel {
   Future<void> sendSmsCode(String phoneNumber) async {
     state = state.copyWith(isLoading: true, error: null);
     
+    final sanitizedPhoneNumber = phoneNumber.replaceAll('-', '');
     final sendSmsUseCase = ref.read(sendSmsCodeUseCaseProvider);
-    final result = await sendSmsUseCase(phoneNumber: phoneNumber);
+    final result = await sendSmsUseCase(phoneNumber: sanitizedPhoneNumber);
     
     state = result.fold(
       (failure) => state.copyWith(isLoading: false, error: failure.message),
@@ -46,9 +47,11 @@ class RegistrationViewModel extends _$RegistrationViewModel {
   }) async {
     state = state.copyWith(isLoading: true, error: null);
     
+    final sanitizedPhoneNumber = phoneNumber.replaceAll('-', '');
+
     // 1. Verify SMS Code
     final verifySmsUseCase = ref.read(verifySmsCodeUseCaseProvider);
-    final verifyResult = await verifySmsUseCase(phoneNumber: phoneNumber, code: smsCode);
+    final verifyResult = await verifySmsUseCase(phoneNumber: sanitizedPhoneNumber, code: smsCode);
     
     verifyResult.fold(
       (failure) {
@@ -58,7 +61,7 @@ class RegistrationViewModel extends _$RegistrationViewModel {
          // 2. Signup with token
          final signupUseCase = ref.read(signupUseCaseProvider);
          final signupResult = await signupUseCase(
-           phoneNumber: phoneNumber,
+           phoneNumber: sanitizedPhoneNumber,
            username: username,
            password: password,
            verificationToken: verificationToken,
