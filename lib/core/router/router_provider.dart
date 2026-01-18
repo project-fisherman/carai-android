@@ -22,8 +22,9 @@ GoRouter router(RouterRef ref) {
 
       final isLoggedIn = authState.value != null;
       final isLoggingIn = state.uri.path == const LoginRoute().location;
+      final isSigningUp = state.uri.path == const RegistrationRoute().location;
 
-      if (!isLoggedIn && !isLoggingIn) {
+      if (!isLoggedIn && !isLoggingIn && !isSigningUp) {
         return const LoginRoute().location;
       }
 
